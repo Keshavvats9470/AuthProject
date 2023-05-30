@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:project_socioapp/resources/auth_methods.dart';
-import 'package:project_socioapp/screens/home_screen.dart';
+import 'package:project_socioapp/responsive/mobile_screen_layout.dart';
+import 'package:project_socioapp/responsive/responsive_layout_screen.dart';
+import 'package:project_socioapp/responsive/web_screen_layout.dart';
+// import 'package:project_socioapp/screens/home_screen.dart';
 import 'package:project_socioapp/screens/signup_screen.dart';
 import 'package:project_socioapp/utils/colors.dart';
 import 'package:project_socioapp/utils/utils.dart';
@@ -11,7 +14,7 @@ class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
@@ -35,9 +38,16 @@ class _LoginScreenState extends State<LoginScreen> {
 
     if (res == "success") {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const HomeScreen()));
+        MaterialPageRoute(
+          builder: (context) => const ResponsiveLayout(
+            mobileScreenLayout: MobileScreenLayout(),
+            webScreenLayout: WebScreenLayout(),
+          ),
+        ),
+      );
     } else {
       // Snackbar
+      // ignore: use_build_context_synchronously
       showSnackBar(res, context);
     }
     setState(() {
