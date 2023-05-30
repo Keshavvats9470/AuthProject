@@ -8,7 +8,6 @@ import 'package:project_socioapp/responsive/responsive_layout_screen.dart';
 import 'package:project_socioapp/responsive/web_screen_layout.dart';
 import 'package:project_socioapp/screens/login_screen.dart';
 import 'package:project_socioapp/utils/colors.dart';
-import 'package:project_socioapp/utils/global_variables.dart';
 import 'package:project_socioapp/utils/utils.dart';
 import 'package:project_socioapp/widgets/text_field_input.dart';
 
